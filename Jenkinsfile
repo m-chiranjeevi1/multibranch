@@ -2,7 +2,7 @@ node('master')
 {
     stage('Continuous Download') 
 	{
-    git ''
+    git 'https://github.com/m-chiranjeevi1/multibranch.git'
 	}
     stage('Continuous Build') 
 	{
