@@ -1,0 +1,18 @@
+node('master') 
+{
+  stage('ContinuousDownload') 
+  {
+    git 'https://github.com/selenium-saikrishna/maven.git'
+  } 
+  stage('ContinuousBuild') 
+  {
+    sh 'mvn package'
+  } 
+  stage('ContinuousTesting') 
+  {
+    git 'https://github.com/selenium-saikrishna/TestingOnLinux.git'
+    sh 'java -jar  /var/lib/jenkins/workspace/Pipeline/testing.jar'
+  } 
+  
+  
+}
